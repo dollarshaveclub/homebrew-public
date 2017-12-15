@@ -4,7 +4,7 @@ class  Minibox < Formula
   url "git@github.com:dollarshaveclub/minibox.git",
       :using => :git,
       :tag => "v0.1.0",
-      :revision => "" # empty for now until a version is released
+      :revision => "27bcdb05a9f1ce802479543eaa1cdee5b8af1037" # empty for now until a version is released
 
   depends_on "go" => :build
 
