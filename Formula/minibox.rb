@@ -5,7 +5,7 @@ class  Minibox < Formula
       :using => :git,
       :tag => "v0.1.0",
       :revision => "b8b2fc1f20fe90130aa5518dee613621f04b617b"
-
+  head "git@github.com:dollarshaveclub/minibox.git", :using => :git
   depends_on "go" => :build
 
   def install
