@@ -7,6 +7,7 @@ class  Minibox < Formula
       :revision => "e7379debd365425d4728683cf8d205a7d7f7fa0a"
   head "git@github.com:dollarshaveclub/minibox.git", :using => :git
   depends_on "go" => :build
+  depends_on "kubectl"
 
   def install
 
