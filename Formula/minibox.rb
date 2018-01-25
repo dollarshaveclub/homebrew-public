@@ -5,8 +5,10 @@ class  Minibox < Formula
       :using => :git,
       :tag => "v0.2.1",
       :revision => "e7379debd365425d4728683cf8d205a7d7f7fa0a"
+  revision 1
   head "git@github.com:dollarshaveclub/minibox.git", :using => :git
   depends_on "go" => :build
+  depends_on "kubectl"
 
   def install
 
