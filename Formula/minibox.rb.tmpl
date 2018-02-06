@@ -17,6 +17,7 @@ class  Minibox < Formula
     {{ range .BottleDefs }}
     sha256 "{{- .Hash }}" => :{{ .TargetOS -}}
     {{- end -}}
+  end
   {{ end }}
 
   def install
