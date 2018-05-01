@@ -3,8 +3,8 @@ class  Minibox < Formula
   homepage "https://github.com/dollarshaveclub/minibox"
   url "git@github.com:dollarshaveclub/minibox.git",
       :using => :git,
-      :tag => "v0.3.0",
-      :revision => "0b409cf299144bf514841dfd3cd03094cc351b6d"
+      :tag => "v0.4.0",
+      :revision => "dd33454ceced44d9310e279f16683c3f6f269b10"
   revision 1
   head "git@github.com:dollarshaveclub/minibox.git", :using => :git
   depends_on "go" => :build
