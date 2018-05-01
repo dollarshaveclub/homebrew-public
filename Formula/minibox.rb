@@ -15,9 +15,9 @@ class  Minibox < Formula
   bottle do
     root_url "https://github.com/dollarshaveclub/minibox/releases/download/v0.4.0/"
     rebuild 1
-    sha256 "eae5d3e960c20b6f5bd589b2050871273013693ecddf6905a8a48ec342720740" => :el_capitan
-    sha256 "eae5d3e960c20b6f5bd589b2050871273013693ecddf6905a8a48ec342720740" => :high_sierra
-    sha256 "eae5d3e960c20b6f5bd589b2050871273013693ecddf6905a8a48ec342720740" => :sierra
+    sha256 "40cfa16c89d3f7bd95757ead773cbac96606e8ebca04bfa73be62aa6bbc680bb" => :el_capitan
+    sha256 "40cfa16c89d3f7bd95757ead773cbac96606e8ebca04bfa73be62aa6bbc680bb" => :high_sierra
+    sha256 "40cfa16c89d3f7bd95757ead773cbac96606e8ebca04bfa73be62aa6bbc680bb" => :sierra
   end
   
 
