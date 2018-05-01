@@ -1,14 +1,25 @@
+# GENERATED FROM TEMPLATE. DO NOT EDIT!
 class  Minibox < Formula
   desc "Minibox CLI"
   homepage "https://github.com/dollarshaveclub/minibox"
   url "git@github.com:dollarshaveclub/minibox.git",
       :using => :git,
-      :tag => "v0.3.0",
-      :revision => "0b409cf299144bf514841dfd3cd03094cc351b6d"
+      :tag => "v0.4.0",
+      :revision => "dd33454ceced44d9310e279f16683c3f6f269b10"
   revision 1
   head "git@github.com:dollarshaveclub/minibox.git", :using => :git
   depends_on "go" => :build
   depends_on "kubectl"
+
+  
+  bottle do
+    root_url "https://github.com/dollarshaveclub/minibox/releases/download/v0.4.0/"
+    rebuild 1
+    sha256 "b2e55ac24b86aa0ec8639fd003666c545f4b6c82b53b9337dabb9341589cec34" => :el_capitan
+    sha256 "b2e55ac24b86aa0ec8639fd003666c545f4b6c82b53b9337dabb9341589cec34" => :high_sierra
+    sha256 "b2e55ac24b86aa0ec8639fd003666c545f4b6c82b53b9337dabb9341589cec34" => :sierra
+  end
+  
 
   def install
 
