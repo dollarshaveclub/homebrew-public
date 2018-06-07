@@ -5,7 +5,7 @@ class  Minibox < Formula
   url "git@github.com:dollarshaveclub/minibox.git",
       :using => :git,
       :tag => "v0.5.0",
-      :revision => "9c0a82c7cef2f368e17056e79592f9732278df28"
+      :revision => "d9c54c07c0a6adc5ef91dac06f1946319314fb37"
   revision 1
   head "git@github.com:dollarshaveclub/minibox.git", :using => :git
   depends_on "go" => :build
@@ -15,9 +15,9 @@ class  Minibox < Formula
   bottle do
     root_url "https://github.com/dollarshaveclub/minibox/releases/download/v0.5.0/"
     rebuild 1
-    sha256 "9a8f61096ad56a4f4cdccea30b2affa2b73e1a953098f8e0f72fcd064953e461" => :el_capitan
-    sha256 "9a8f61096ad56a4f4cdccea30b2affa2b73e1a953098f8e0f72fcd064953e461" => :high_sierra
-    sha256 "9a8f61096ad56a4f4cdccea30b2affa2b73e1a953098f8e0f72fcd064953e461" => :sierra
+    sha256 "74a8c21418a33395112b7e34c6435da166cbaabe2a5fbaf90336376e45d3894e" => :el_capitan
+    sha256 "74a8c21418a33395112b7e34c6435da166cbaabe2a5fbaf90336376e45d3894e" => :high_sierra
+    sha256 "74a8c21418a33395112b7e34c6435da166cbaabe2a5fbaf90336376e45d3894e" => :sierra
   end
   
 
