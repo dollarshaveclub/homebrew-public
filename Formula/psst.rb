@@ -1,5 +1,5 @@
 # GENERATED FROM TEMPLATE. DO NOT EDIT!
-class  psst < Formula
+class  Psst < Formula
   desc "psst"
   homepage "https://github.com/dollarshaveclub/psst"
   url "git@github.com:dollarshaveclub/psst.git",
