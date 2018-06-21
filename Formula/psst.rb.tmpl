@@ -1,0 +1,39 @@
+class  psst < Formula
+  desc "psst"
+  homepage "https://github.com/dollarshaveclub/psst"
+  url "git@github.com:dollarshaveclub/psst.git",
+      :using => :git,
+      :tag => "{{ .Tag }}",
+      :revision => "{{ .CommitSHA }}"
+  revision {{ .HomebrewRevision }}
+  head "git@github.com:dollarshaveclub/psst.git", :using => :git
+  depends_on "go" => :build
+
+  {{ if .Bottled }}
+  bottle do
+    root_url "{{ .BaseDownloadURL }}"
+    rebuild {{ .BottleRebuild -}}
+    {{ range .BottleDefs }}
+    sha256 "{{- .Hash }}" => :{{ .TargetOS -}}
+    {{ end }}
+  end
+  {{ end }}
+
+  def install
+
+    ENV["GOPATH"] = buildpath
+    psstpath = buildpath/"src/github.com/dollarshaveclub/psst"
+    psstpath.install buildpath.children
+
+    cd psstpath do
+      system "make"
+      bin.install "bin/psst"
+      prefix.install_metafiles
+    end
+  end
+
+  test do
+    system "#{bin}/psst"
+    assert true
+  end
+end
