@@ -5,11 +5,10 @@ class  Psst < Formula
       :using => :git,
       :tag => "{{ .Tag }}",
       :revision => "{{ .CommitSHA }}"
-  revision {{ .HomebrewRevision }}
+  {{ if .HomebrewRevision -}}revision {{ .HomebrewRevision }}{{ end }}
   head "git@github.com:dollarshaveclub/psst.git", :using => :git
-  depends_on "go" => :build
 
-  {{ if .Bottled }}
+  {{ if .Bottled -}}
   bottle do
     root_url "{{ .BaseDownloadURL }}"
     rebuild {{ .BottleRebuild -}}
@@ -17,17 +16,18 @@ class  Psst < Formula
     sha256 "{{- .Hash }}" => :{{ .TargetOS -}}
     {{ end }}
   end
-  {{ end }}
+  {{- end }}
+
+  depends_on "go" => :build
 
   def install
-
     ENV["GOPATH"] = buildpath
     psstpath = buildpath/"src/github.com/dollarshaveclub/psst"
     psstpath.install buildpath.children
 
     cd psstpath do
-      system "make"
-      bin.install "bin/psst"
+      system "make", "build-dsc"
+      bin.install "bin/dsc/darwin/psst"
       prefix.install_metafiles
     end
   end
