@@ -5,30 +5,28 @@ class  Psst < Formula
   url "git@github.com:dollarshaveclub/psst.git",
       :using => :git,
       :tag => "v0.1.1",
-      :revision => "2f72a2eb1761648a7ceb3fdd2a5b5834b3e4afb2"
-  revision 1
-  head "git@github.com:dollarshaveclub/psst.git", :using => :git
-  depends_on "go" => :build
-
+      :revision => "6c06bb46ff2d3a514f2da2b54b44abec516ecfb1"
   
+  head "git@github.com:dollarshaveclub/psst.git", :using => :git
+
   bottle do
     root_url "https://github.com/dollarshaveclub/psst/releases/download/v0.1.1"
     rebuild 1
-    sha256 "af85427510aa8e06741a69922bfd00a2776da4dcc3e7fa33977f05d36111cbca" => :el_capitan
-    sha256 "af85427510aa8e06741a69922bfd00a2776da4dcc3e7fa33977f05d36111cbca" => :high_sierra
-    sha256 "af85427510aa8e06741a69922bfd00a2776da4dcc3e7fa33977f05d36111cbca" => :sierra
+    sha256 "5fe947e86ec9a861a570b3945e77a2f667aa74e347f83e84099c9f788f27d192" => :el_capitan
+    sha256 "5fe947e86ec9a861a570b3945e77a2f667aa74e347f83e84099c9f788f27d192" => :high_sierra
+    sha256 "5fe947e86ec9a861a570b3945e77a2f667aa74e347f83e84099c9f788f27d192" => :sierra
   end
-  
+
+  depends_on "go" => :build
 
   def install
-
     ENV["GOPATH"] = buildpath
     psstpath = buildpath/"src/github.com/dollarshaveclub/psst"
     psstpath.install buildpath.children
 
     cd psstpath do
-      system "make"
-      bin.install "bin/psst"
+      system "make", "build-dsc"
+      bin.install "bin/dsc/darwin/psst"
       prefix.install_metafiles
     end
   end
