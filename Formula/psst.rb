@@ -4,19 +4,19 @@ class  psst < Formula
   homepage "https://github.com/dollarshaveclub/psst"
   url "git@github.com:dollarshaveclub/psst.git",
       :using => :git,
-      :tag => "v0.1.0",
-      :revision => "de0ad6ef5e14e560f6db7af4ffc1703472d15627"
+      :tag => "v0.1.1",
+      :revision => "2f72a2eb1761648a7ceb3fdd2a5b5834b3e4afb2"
   revision 1
   head "git@github.com:dollarshaveclub/psst.git", :using => :git
   depends_on "go" => :build
 
   
   bottle do
-    root_url "https://github.com/dollarshaveclub/psst/releases/download/v0.1.0/"
+    root_url "https://github.com/dollarshaveclub/psst/releases/download/v0.1.1"
     rebuild 1
-    sha256 "96185d36b0e67a06add8c4ed520b4967c628090e431bd72c750fcbc7a5ab9d0c" => :el_capitan
-    sha256 "96185d36b0e67a06add8c4ed520b4967c628090e431bd72c750fcbc7a5ab9d0c" => :high_sierra
-    sha256 "96185d36b0e67a06add8c4ed520b4967c628090e431bd72c750fcbc7a5ab9d0c" => :sierra
+    sha256 "66370095d67d3b986253798075ee9360fa8eaedc3dba03832628f9f84aac9a3f" => :el_capitan
+    sha256 "66370095d67d3b986253798075ee9360fa8eaedc3dba03832628f9f84aac9a3f" => :high_sierra
+    sha256 "66370095d67d3b986253798075ee9360fa8eaedc3dba03832628f9f84aac9a3f" => :sierra
   end
   
 
