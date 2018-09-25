@@ -12,9 +12,9 @@ class  Psst < Formula
   bottle do
     root_url "https://github.com/dollarshaveclub/psst/releases/download/v0.2.0"
     rebuild 1
-    sha256 "265cc4a30469b5172adb38313da289783595084db60110495aac1e3e2bde19a9" => :el_capitan
-    sha256 "265cc4a30469b5172adb38313da289783595084db60110495aac1e3e2bde19a9" => :high_sierra
-    sha256 "265cc4a30469b5172adb38313da289783595084db60110495aac1e3e2bde19a9" => :sierra
+    sha256 "9ee65127bc27c596929474e1be95d4ec821e4771049d2aec74a1dcc7027942a5" => :el_capitan
+    sha256 "9ee65127bc27c596929474e1be95d4ec821e4771049d2aec74a1dcc7027942a5" => :high_sierra
+    sha256 "9ee65127bc27c596929474e1be95d4ec821e4771049d2aec74a1dcc7027942a5" => :sierra
   end
 
   depends_on "go" => :build
