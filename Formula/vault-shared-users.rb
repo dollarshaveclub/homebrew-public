@@ -1,4 +1,5 @@
-require_relative "GitHubPrivateRepositoryReleaseDownloadStrategy"
+require "formula"
+
 class VaultSharedUsers < Formula
   desc "Easily share users with 2FA access through Hashicorp Vault"
   homepage ""
