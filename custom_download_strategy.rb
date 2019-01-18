@@ -12,6 +12,12 @@ class CustomGitHubPrivateRepositoryDownloadStrategy < CurlDownloadStrategy
   require "utils/formatter"
   require "utils/github"
 
+  def initialize(url, name, version, **meta)
+    super
+    parse_url_pattern
+    set_github_token
+  end
+
   def parse_url_pattern
     unless match = url.match(%r{https://github.com/([^/]+)/([^/]+)/(\S+)})
       raise CurlDownloadStrategyError, "Invalid url pattern for GitHub Repository."
@@ -58,6 +64,12 @@ end
 # of your formula. This download strategy uses GitHub access tokens (in the
 # environment variables HOMEBREW_GITHUB_API_TOKEN) to sign the request.
 class CustomGitHubPrivateRepositoryReleaseDownloadStrategy < CustomGitHubPrivateRepositoryDownloadStrategy
+  require 'net/http'
+
+  def initialize(url, name, version, **meta)
+    super
+  end
+
   def parse_url_pattern
     url_pattern = %r{https://github.com/([^/]+)/([^/]+)/releases/download/([^/]+)/(\S+)}
     unless @url =~ url_pattern
@@ -69,7 +81,17 @@ class CustomGitHubPrivateRepositoryReleaseDownloadStrategy < CustomGitHubPrivate
 
   def download_url
     #"https://#{@github_token}@api.github.com/repos/#{@owner}/#{@repo}/releases/assets/#{asset_id}"
-    "https://api.github.com/repos/#{@owner}/#{@repo}/releases/assets/#{asset_id}"
+    #blah = curl_output "--header", "Accept: application/octet-stream", "--header", "Authorization: token #{@github_token}", "-I"
+    uri = URI("https://api.github.com/repos/#{@owner}/#{@repo}/releases/assets/#{asset_id}")
+    req = Net::HTTP::Get.new(uri)
+    req['Accept'] = 'application/octet-stream'
+    req['Authorization'] = "token #{@github_token}"
+
+    res = Net::HTTP.start(uri.hostname, uri.port, :use_ssl => uri.scheme == 'https') do |http|
+      http.request(req)
+    end
+
+    res['location']
   end
 
   private
@@ -77,7 +99,7 @@ class CustomGitHubPrivateRepositoryReleaseDownloadStrategy < CustomGitHubPrivate
   def _fetch(url:, resolved_url:)
     # HTTP request header `Accept: application/octet-stream` is required.
     # Without this, the GitHub API will respond with metadata, not binary.
-    curl_download download_url, "--header", "Accept: application/octet-stream", "--header", "Authorization: token #{@github_token}", to: temporary_path
+    curl_download download_url, "--header", "Accept: application/octet-stream", to: temporary_path
   end
 
   def asset_id
