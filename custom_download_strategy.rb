@@ -1,50 +1,5 @@
 require "download_strategy"
 
-# S3DownloadStrategy downloads tarballs from AWS S3.
-# To use it, add `:using => :s3` to the URL section of your
-# formula.  This download strategy uses AWS access tokens (in the
-# environment variables `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY`)
-# to sign the request.  This strategy is good in a corporate setting,
-# because it lets you use a private S3 bucket as a repo for internal
-# distribution.  (It will work for public buckets as well.)
-class S3DownloadStrategy < CurlDownloadStrategy
-  def initialize(url, name, version, **meta)
-    odisabled("S3DownloadStrategy",
-      "a vendored S3DownloadStrategy in your own formula or tap (using require_relative)")
-    super
-  end
-
-  def _fetch(url:, resolved_url:)
-    if url !~ %r{^https?://([^.].*)\.s3\.amazonaws\.com/(.+)$} &&
-       url !~ %r{^s3://([^.].*?)/(.+)$}
-      raise "Bad S3 URL: " + url
-    end
-
-    bucket = Regexp.last_match(1)
-    key = Regexp.last_match(2)
-
-    ENV["AWS_ACCESS_KEY_ID"] = ENV["HOMEBREW_AWS_ACCESS_KEY_ID"]
-    ENV["AWS_SECRET_ACCESS_KEY"] = ENV["HOMEBREW_AWS_SECRET_ACCESS_KEY"]
-
-    begin
-      require "aws-sdk-s3"
-    rescue LoadError
-      Homebrew.install_gem! "aws-sdk-s3", "~> 1.8"
-      require "aws-sdk-s3"
-    end
-
-    begin
-      signer = Aws::S3::Presigner.new
-      s3url = signer.presigned_url :get_object, bucket: bucket, key: key
-    rescue Aws::Sigv4::Errors::MissingCredentialsError
-      ohai "AWS credentials missing, trying public URL instead."
-      s3url = url
-    end
-
-    curl_download s3url, to: temporary_path
-  end
-end
-
 # GitHubPrivateRepositoryDownloadStrategy downloads contents from GitHub
 # Private Repository. To use it, add
 # `:using => :github_private_repo` to the URL section of
@@ -53,17 +8,9 @@ end
 # strategy is suitable for corporate use just like S3DownloadStrategy, because
 # it lets you use a private GitHub repository for internal distribution.  It
 # works with public one, but in that case simply use CurlDownloadStrategy.
-class GitHubPrivateRepositoryDownloadStrategy < CurlDownloadStrategy
+class CustomGitHubPrivateRepositoryDownloadStrategy < CurlDownloadStrategy
   require "utils/formatter"
   require "utils/github"
-
-  def initialize(url, name, version, **meta)
-    odisabled("GitHubPrivateRepositoryDownloadStrategy",
-      "a vendored GitHubPrivateRepositoryDownloadStrategy in your own formula or tap (using require_relative)")
-    super
-    parse_url_pattern
-    set_github_token
-  end
 
   def parse_url_pattern
     unless match = url.match(%r{https://github.com/([^/]+)/([^/]+)/(\S+)})
@@ -110,13 +57,7 @@ end
 # Release assets. To use it, add `:using => :github_private_release` to the URL section
 # of your formula. This download strategy uses GitHub access tokens (in the
 # environment variables HOMEBREW_GITHUB_API_TOKEN) to sign the request.
-class GitHubPrivateRepositoryReleaseDownloadStrategy < GitHubPrivateRepositoryDownloadStrategy
-  def initialize(url, name, version, **meta)
-    odisabled("GitHubPrivateRepositoryReleaseDownloadStrategy",
-      "a vendored GitHubPrivateRepositoryReleaseDownloadStrategy in your own formula or tap (using require_relative)")
-    super
-  end
-
+class CustomGitHubPrivateRepositoryReleaseDownloadStrategy < CustomGitHubPrivateRepositoryDownloadStrategy
   def parse_url_pattern
     url_pattern = %r{https://github.com/([^/]+)/([^/]+)/releases/download/([^/]+)/(\S+)}
     unless @url =~ url_pattern
