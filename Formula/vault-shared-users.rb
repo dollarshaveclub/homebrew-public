@@ -1,4 +1,4 @@
-require "formula"
+relative_require "custom_download_strategy"
 
 class VaultSharedUsers < Formula
   desc "Easily share users with 2FA access through Hashicorp Vault"
