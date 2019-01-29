@@ -2,9 +2,9 @@ require_relative "../custom_download_strategy.rb"
 class Acyl < Formula
   desc "Testing Environments On Demand"
   homepage ""
-  url "https://github.com/dollarshaveclub/acyl/releases/download/v0.5.0/acyl_0.5.0_MacOS_x86_64.tar.gz", :using => CustomGitHubPrivateRepositoryReleaseDownloadStrategy
-  version "0.5.0"
-  sha256 "bf819bf8b8b6e17dd298ab76848958fc22cb55d44abdfcfb4d6e7e926c97888b"
+  url "https://github.com/dollarshaveclub/acyl/releases/download/v0.6.0-rc1/acyl_0.6.0-rc1_MacOS_x86_64.tar.gz", :using => CustomGitHubPrivateRepositoryReleaseDownloadStrategy
+  version "0.6.0-rc1"
+  sha256 "4e01b4965190894e6502d299af9afd967dd59b73c7c922df2c75f85bd8f6e207"
 
   def install
     bin.install "acyl"
