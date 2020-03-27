@@ -19,6 +19,10 @@ class Acyl < Formula
     bin.install "acyl"
     pkgshare.mkpath
     pkgshare.install "data/words.json.gz"
-    pkgshare.install Dir["ui/**/*"]
+    (pkgshare/"ui").mkpath
+    (pkgshare/"ui/views").mkpath
+    (pkgshare/"ui/views").install Dir["ui/views/*"]
+    (pkgshare/"ui/assets").mkpath
+    (pkgshare/"ui/assets").install Dir["ui/assets/*"]
   end
 end
