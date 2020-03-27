@@ -2,16 +2,16 @@
 class Acyl < Formula
   desc "Testing Environments On Demand"
   homepage ""
-  version "0.7.0"
+  version "0.7.5"
   bottle :unneeded
 
   if OS.mac?
-    url "https://github.com/dollarshaveclub/acyl/releases/download/v0.7.0/acyl_0.7.0_MacOS_x86_64.tar.gz"
-    sha256 "ee67ed4680063b69721ee54fe51345b9cc40ffb6238b9b4e503c1f2919b4a51b"
+    url "https://github.com/dollarshaveclub/acyl/releases/download/v0.7.5/acyl_0.7.5_MacOS_x86_64.tar.gz"
+    sha256 "44238eb6fb84441bdab24c32ef596825fe20e9836cee37445b8c00f438c3cb39"
   elsif OS.linux?
     if Hardware::CPU.intel?
-      url "https://github.com/dollarshaveclub/acyl/releases/download/v0.7.0/acyl_0.7.0_Linux_x86_64.tar.gz"
-      sha256 "1d81e23d756d4251065e3ef151b079ccad457b83e291126cd07aab6332b1fdc5"
+      url "https://github.com/dollarshaveclub/acyl/releases/download/v0.7.5/acyl_0.7.5_Linux_x86_64.tar.gz"
+      sha256 "52bc708fb41b2a315a5cca20232e00dadec67a1ef777c283fa28b271ea3b8056"
     end
   end
 
@@ -19,5 +19,6 @@ class Acyl < Formula
     bin.install "acyl"
     pkgshare.mkpath
     pkgshare.install "data/words.json.gz"
+    pkgshare.install Dir["ui/**/*"]
   end
 end
