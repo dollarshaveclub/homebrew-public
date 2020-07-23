@@ -2,16 +2,16 @@
 class Acyl < Formula
   desc "Testing Environments On Demand"
   homepage ""
-  version "0.7.5"
+  version "0.7.6"
   bottle :unneeded
 
   if OS.mac?
-    url "https://github.com/dollarshaveclub/acyl/releases/download/v0.7.5/acyl_0.7.5_MacOS_x86_64.tar.gz"
-    sha256 "44238eb6fb84441bdab24c32ef596825fe20e9836cee37445b8c00f438c3cb39"
+    url "https://github.com/dollarshaveclub/acyl/releases/download/v0.7.6/acyl_0.7.6_MacOS_x86_64.tar.gz"
+    sha256 "d0de9e20340d1bd51e8cc3549b12307730b6dada8a26bb1f2a26950224fa16b5"
   elsif OS.linux?
     if Hardware::CPU.intel?
-      url "https://github.com/dollarshaveclub/acyl/releases/download/v0.7.5/acyl_0.7.5_Linux_x86_64.tar.gz"
-      sha256 "52bc708fb41b2a315a5cca20232e00dadec67a1ef777c283fa28b271ea3b8056"
+      url "https://github.com/dollarshaveclub/acyl/releases/download/v0.7.6/acyl_0.7.6_Linux_x86_64.tar.gz"
+      sha256 "28b3bcf4ad68054895afe69d39d4e126fc32057cc210568b5c9b4f819b74aa95"
     end
   end
 
