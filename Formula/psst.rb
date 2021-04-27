@@ -1,6 +1,6 @@
 # GENERATED FROM TEMPLATE. DO NOT EDIT!
 class  Psst < Formula
-  desc "secrets distribution"
+  desc "Secrets distribution"
   homepage "https://github.com/dollarshaveclub/psst"
   url "git@github.com:dollarshaveclub/psst.git",
       using:    :git,
