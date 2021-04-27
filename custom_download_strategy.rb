@@ -147,7 +147,7 @@ class ScpDownloadStrategy < AbstractFileDownloadStrategy
     _, @user, @host, @port, @path = *@url.match(url_pattern)
   end
 
-  def fetch
+  def fetch(timeout: nil)
     ohai "Downloading #{@url}"
 
     if cached_location.exist?
