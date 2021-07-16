@@ -5,29 +5,29 @@
 class Thermite < Formula
   desc "Removes old Amazon Elastic Container Registry images that are not deployed in a Kubernetes cluster"
   homepage "https://github.com/dollarshaveclub/thermite"
-  version "0.0.17"
+  version "0.0.20"
   license "MIT"
   bottle :unneeded
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/dollarshaveclub/thermite/releases/download/v0.0.17/thermite_0.0.17_darwin_amd64.tar.gz"
-      sha256 "2e9fada99a1123c440d7737cc9d2014eb48839c6d941155dd479dae7143f18d9"
+      url "https://github.com/dollarshaveclub/thermite/releases/download/v0.0.20/thermite_0.0.20_darwin_amd64.tar.gz"
+      sha256 "b7c54a58292f628109b937677affbdfc9530d7fcdb4857976ee72ebb67c47397"
     end
     if Hardware::CPU.arm?
-      url "https://github.com/dollarshaveclub/thermite/releases/download/v0.0.17/thermite_0.0.17_darwin_arm64.tar.gz"
-      sha256 "2f63fa4a47f195a2fa2a4d2a562d5413db9e9cda26fbb32c073451105b0c7df3"
+      url "https://github.com/dollarshaveclub/thermite/releases/download/v0.0.20/thermite_0.0.20_darwin_arm64.tar.gz"
+      sha256 "e46f3c6a515c068f1f7211aa59936623b82de8d940cf623efc477e16ed1fc9d6"
     end
   end
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/dollarshaveclub/thermite/releases/download/v0.0.17/thermite_0.0.17_linux_amd64.tar.gz"
-      sha256 "3b74360bc15779429a3d9feb5f678c199dd772dc7e35ffd7e15dca9465619fb3"
+      url "https://github.com/dollarshaveclub/thermite/releases/download/v0.0.20/thermite_0.0.20_linux_amd64.tar.gz"
+      sha256 "af8536700a8a096a9c72a0da3aa2b56de6bdb839a647975638053e2a04ac4db8"
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/dollarshaveclub/thermite/releases/download/v0.0.17/thermite_0.0.17_linux_arm64.tar.gz"
-      sha256 "bac9836c05877088b37ddc584b397300b9a3dc348d273e4118e8a8d1245d104e"
+      url "https://github.com/dollarshaveclub/thermite/releases/download/v0.0.20/thermite_0.0.20_linux_arm64.tar.gz"
+      sha256 "77960e706c17ff672df4be6efe1694fa824d1d293f191b9808d4a3620fca8217"
     end
   end
 
