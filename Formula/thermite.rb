@@ -5,29 +5,29 @@
 class Thermite < Formula
   desc "Removes old Amazon Elastic Container Registry images that are not deployed in a Kubernetes cluster"
   homepage "https://github.com/dollarshaveclub/thermite"
-  version "0.0.20"
+  version "0.0.21"
   license "MIT"
   bottle :unneeded
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/dollarshaveclub/thermite/releases/download/v0.0.20/thermite_0.0.20_darwin_amd64.tar.gz"
-      sha256 "b7c54a58292f628109b937677affbdfc9530d7fcdb4857976ee72ebb67c47397"
+      url "https://github.com/dollarshaveclub/thermite/releases/download/v0.0.21/thermite_0.0.21_darwin_amd64.tar.gz"
+      sha256 "2b108df44c95fe96bde0e2fb188afd70502d33b5e6292ea375f2d4c445ea44fc"
     end
     if Hardware::CPU.arm?
-      url "https://github.com/dollarshaveclub/thermite/releases/download/v0.0.20/thermite_0.0.20_darwin_arm64.tar.gz"
-      sha256 "e46f3c6a515c068f1f7211aa59936623b82de8d940cf623efc477e16ed1fc9d6"
+      url "https://github.com/dollarshaveclub/thermite/releases/download/v0.0.21/thermite_0.0.21_darwin_arm64.tar.gz"
+      sha256 "9a1bfbf89b929d4e17bd44e328a6c55180f38fa718424df25e655cec0d3c312c"
     end
   end
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/dollarshaveclub/thermite/releases/download/v0.0.20/thermite_0.0.20_linux_amd64.tar.gz"
-      sha256 "af8536700a8a096a9c72a0da3aa2b56de6bdb839a647975638053e2a04ac4db8"
+      url "https://github.com/dollarshaveclub/thermite/releases/download/v0.0.21/thermite_0.0.21_linux_amd64.tar.gz"
+      sha256 "cd14f370b52a7cf6493ca016a66f3277432a9e1c4d79a01f14a983ca055f962d"
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/dollarshaveclub/thermite/releases/download/v0.0.20/thermite_0.0.20_linux_arm64.tar.gz"
-      sha256 "77960e706c17ff672df4be6efe1694fa824d1d293f191b9808d4a3620fca8217"
+      url "https://github.com/dollarshaveclub/thermite/releases/download/v0.0.21/thermite_0.0.21_linux_arm64.tar.gz"
+      sha256 "9c786cd50606fa6cd892b49724605b3114107bea943224e3751e50c25b0385d5"
     end
   end
 
