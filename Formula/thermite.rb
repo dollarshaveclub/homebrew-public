@@ -5,29 +5,29 @@
 class Thermite < Formula
   desc "Removes old Amazon Elastic Container Registry images that are not deployed in a Kubernetes cluster"
   homepage "https://github.com/dollarshaveclub/thermite"
-  version "0.0.23"
+  version "0.0.27"
   license "MIT"
   bottle :unneeded
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/dollarshaveclub/thermite/releases/download/v0.0.23/thermite_0.0.23_darwin_amd64.tar.gz"
-      sha256 "d8d443a2cf5c2cc721749dd7cbe66226f11f751fd9eb73ba2e10c25583e94ffa"
+      url "https://github.com/dollarshaveclub/thermite/releases/download/v0.0.27/thermite_0.0.27_darwin_amd64.tar.gz"
+      sha256 "f640a4e825fd6f4ae2867f6f9ceefa3a0d6e9ab2d0a5c812b6046e057c47945d"
     end
     if Hardware::CPU.arm?
-      url "https://github.com/dollarshaveclub/thermite/releases/download/v0.0.23/thermite_0.0.23_darwin_arm64.tar.gz"
-      sha256 "204b8715a337063b9a54a7dd8c86da26eba74a2ba78e808b5e70bb99404dfbee"
+      url "https://github.com/dollarshaveclub/thermite/releases/download/v0.0.27/thermite_0.0.27_darwin_arm64.tar.gz"
+      sha256 "2e42713a454d6fbd37087bf76892a6cc16ae9999637c24f18021bd558a11c7a6"
     end
   end
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/dollarshaveclub/thermite/releases/download/v0.0.23/thermite_0.0.23_linux_amd64.tar.gz"
-      sha256 "59a4cd4bc8810b8d72985b68c1bfdfcc56689b09258187dfaa54ac59aae60dc7"
+      url "https://github.com/dollarshaveclub/thermite/releases/download/v0.0.27/thermite_0.0.27_linux_amd64.tar.gz"
+      sha256 "4a46d622644cfc8de5d960ebcdd646891d64c590b2257668694ca5a4b9c584db"
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/dollarshaveclub/thermite/releases/download/v0.0.23/thermite_0.0.23_linux_arm64.tar.gz"
-      sha256 "8d0ac1edfd2c139c4a195cdfeef9617a8c629bba5475875ebd156bceaf5c70b8"
+      url "https://github.com/dollarshaveclub/thermite/releases/download/v0.0.27/thermite_0.0.27_linux_arm64.tar.gz"
+      sha256 "abe72d7fe2f8b0be405f6e4a6cb53e83e658f4fc39b1892e4294d57fbe98ba5c"
     end
   end
 
