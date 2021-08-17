@@ -5,29 +5,29 @@
 class Thermite < Formula
   desc "Removes old Amazon Elastic Container Registry images that are not deployed in a Kubernetes cluster"
   homepage "https://github.com/dollarshaveclub/thermite"
-  version "0.0.28"
+  version "0.0.29"
   license "MIT"
   bottle :unneeded
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/dollarshaveclub/thermite/releases/download/v0.0.28/thermite_0.0.28_darwin_amd64.tar.gz"
-      sha256 "002e9748757df1fed2f3b29a3158b5bcf94bb577ef6a3a9d6b9c34d9ee22ade6"
+      url "https://github.com/dollarshaveclub/thermite/releases/download/v0.0.29/thermite_0.0.29_darwin_amd64.tar.gz"
+      sha256 "fc564acab9fe86459e562f2596a482a6796e87699ca15ec02080416b4406189f"
     end
     if Hardware::CPU.arm?
-      url "https://github.com/dollarshaveclub/thermite/releases/download/v0.0.28/thermite_0.0.28_darwin_arm64.tar.gz"
-      sha256 "c60f8e57db98882fcef2411d5b27707fa715370b0f4684899396a94d380461f3"
+      url "https://github.com/dollarshaveclub/thermite/releases/download/v0.0.29/thermite_0.0.29_darwin_arm64.tar.gz"
+      sha256 "d731a12c58b2e4a585f586d62a358751b9597a506af6aa93d7577b710dad27da"
     end
   end
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/dollarshaveclub/thermite/releases/download/v0.0.28/thermite_0.0.28_linux_amd64.tar.gz"
-      sha256 "30232ec7207ef79ac982412cb704fb951110f2de62f1c2c89b725f6ae1a4a6dc"
+      url "https://github.com/dollarshaveclub/thermite/releases/download/v0.0.29/thermite_0.0.29_linux_amd64.tar.gz"
+      sha256 "f2e93097bf07be540285b8f24bbfa31a04b57424f4fffcb0bd70d303c4f09bc1"
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/dollarshaveclub/thermite/releases/download/v0.0.28/thermite_0.0.28_linux_arm64.tar.gz"
-      sha256 "05d5fa15c4e5d3c61752bc52f09264738458ba577de3c2f466c593ea763f2d15"
+      url "https://github.com/dollarshaveclub/thermite/releases/download/v0.0.29/thermite_0.0.29_linux_arm64.tar.gz"
+      sha256 "b9a7832a13d0d27b65ce6116f81935b909983c8fd8a6ec5e5d497833068839be"
     end
   end
 
