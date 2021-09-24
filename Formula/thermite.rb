@@ -5,29 +5,25 @@
 class Thermite < Formula
   desc "Removes old Amazon Elastic Container Registry images that are not deployed in a Kubernetes cluster"
   homepage "https://github.com/dollarshaveclub/thermite"
-  version "0.0.29"
+  version "0.0.31"
   license "MIT"
   bottle :unneeded
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/dollarshaveclub/thermite/releases/download/v0.0.29/thermite_0.0.29_darwin_amd64.tar.gz"
-      sha256 "fc564acab9fe86459e562f2596a482a6796e87699ca15ec02080416b4406189f"
-    end
-    if Hardware::CPU.arm?
-      url "https://github.com/dollarshaveclub/thermite/releases/download/v0.0.29/thermite_0.0.29_darwin_arm64.tar.gz"
-      sha256 "d731a12c58b2e4a585f586d62a358751b9597a506af6aa93d7577b710dad27da"
+      url "https://github.com/dollarshaveclub/thermite/releases/download/v0.0.31/thermite_0.0.31_darwin_amd64.tar.gz"
+      sha256 "8d4fd407466d6e519d0ba764b89282df2fad752bf170c1b2dbb7ad292fccdf30"
     end
   end
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/dollarshaveclub/thermite/releases/download/v0.0.29/thermite_0.0.29_linux_amd64.tar.gz"
-      sha256 "f2e93097bf07be540285b8f24bbfa31a04b57424f4fffcb0bd70d303c4f09bc1"
+      url "https://github.com/dollarshaveclub/thermite/releases/download/v0.0.31/thermite_0.0.31_linux_amd64.tar.gz"
+      sha256 "c2b6025c47d6b4bb87427928f116ef96155e5a3efa6c95ce219e95702113b3bd"
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/dollarshaveclub/thermite/releases/download/v0.0.29/thermite_0.0.29_linux_arm64.tar.gz"
-      sha256 "b9a7832a13d0d27b65ce6116f81935b909983c8fd8a6ec5e5d497833068839be"
+      url "https://github.com/dollarshaveclub/thermite/releases/download/v0.0.31/thermite_0.0.31_linux_arm64.tar.gz"
+      sha256 "e0acd450d46fa3525440e1899cedf32a8a09f532bc747cd569cbdc48863d4c84"
     end
   end
 
