@@ -5,31 +5,41 @@
 class Acyl < Formula
   desc "Testing Environments On Demand"
   homepage ""
-  version "0.9.0"
-  bottle :unneeded
+  version "0.9.1"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/dollarshaveclub/acyl/releases/download/v0.9.0/acyl_0.9.0_MacOS_x86_64.tar.gz"
-      sha256 "671042a4adda2486151208f408274b7b232aa37a43a99ec2f91387d80e513724"
+      url "https://github.com/dollarshaveclub/acyl/releases/download/v0.9.1/acyl_0.9.1_MacOS_x86_64.tar.gz"
+      sha256 "eb99844b5b0984cffe4d5c1bc11884816c925cc888ac24a1112414224e532549"
+
+      def install
+        bin.install "acyl"
+        pkgshare.mkpath
+        pkgshare.install "data/words.json.gz"
+        (pkgshare/"ui").mkpath
+        (pkgshare/"ui/views").mkpath
+        (pkgshare/"ui/views").install Dir["ui/views/*"]
+        (pkgshare/"ui/assets").mkpath
+        (pkgshare/"ui/assets").install Dir["ui/assets/*"]
+      end
     end
   end
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/dollarshaveclub/acyl/releases/download/v0.9.0/acyl_0.9.0_Linux_x86_64.tar.gz"
-      sha256 "ce36fde42054f67143a1d5c71ee4533f9f7bbc9bbe614b47dc77bacc85c17075"
-    end
-  end
+      url "https://github.com/dollarshaveclub/acyl/releases/download/v0.9.1/acyl_0.9.1_Linux_x86_64.tar.gz"
+      sha256 "cae43304c83bb9fc441b70dc53b0180832a5d95aedcdf20873c81aafc93c5fb3"
 
-  def install
-    bin.install "acyl"
-    pkgshare.mkpath
-    pkgshare.install "data/words.json.gz"
-    (pkgshare/"ui").mkpath
-    (pkgshare/"ui/views").mkpath
-    (pkgshare/"ui/views").install Dir["ui/views/*"]
-    (pkgshare/"ui/assets").mkpath
-    (pkgshare/"ui/assets").install Dir["ui/assets/*"]
+      def install
+        bin.install "acyl"
+        pkgshare.mkpath
+        pkgshare.install "data/words.json.gz"
+        (pkgshare/"ui").mkpath
+        (pkgshare/"ui/views").mkpath
+        (pkgshare/"ui/views").install Dir["ui/views/*"]
+        (pkgshare/"ui/assets").mkpath
+        (pkgshare/"ui/assets").install Dir["ui/assets/*"]
+      end
+    end
   end
 end
