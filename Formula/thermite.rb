@@ -7,7 +7,6 @@ class Thermite < Formula
   homepage "https://github.com/dollarshaveclub/thermite"
   version "0.0.31"
   license "MIT"
-  bottle :unneeded
 
   on_macos do
     if Hardware::CPU.intel?
