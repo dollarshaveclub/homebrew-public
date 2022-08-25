@@ -3,8 +3,8 @@ class  Psst < Formula
   homepage "https://github.com/dollarshaveclub/psst"
   url "git@github.com:dollarshaveclub/psst.git",
       using:    :git,
-      tag:      "v0.2.1",
-      revision: "afada9fa109b4ed23d4a9541001c329eb5cd72eb"
+      tag:      "v0.2.2",
+      revision: "0bfcc4c9866252574fcbfff6c8e349aef3cb43f5"
 
   head "git@github.com:dollarshaveclub/psst.git", using: :git
 
