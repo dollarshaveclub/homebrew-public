@@ -5,21 +5,21 @@
 class Thermite < Formula
   desc "Removes old Amazon Elastic Container Registry images that are not deployed in a Kubernetes cluster"
   homepage "https://github.com/dollarshaveclub/thermite"
-  version "0.0.32"
+  version "0.0.33"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/dollarshaveclub/thermite/releases/download/v0.0.32/thermite_0.0.32_darwin_arm64.tar.gz"
-      sha256 "3c3e10467ea5fbfdc697705ad83d9f2dcaf9b4861edde70349a18b67c085c766"
+      url "https://github.com/dollarshaveclub/thermite/releases/download/v0.0.33/thermite_0.0.33_darwin_arm64.tar.gz"
+      sha256 "bebb208cf65c45f02ebc4dc3e71b7c047f57dd5eca7a91765c841ec3a6c9e944"
 
       def install
         bin.install "thermite"
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/dollarshaveclub/thermite/releases/download/v0.0.32/thermite_0.0.32_darwin_amd64.tar.gz"
-      sha256 "3be95c08881a3e8df1d4355619d2582f371145d2f01d6a16b9b3938256118245"
+      url "https://github.com/dollarshaveclub/thermite/releases/download/v0.0.33/thermite_0.0.33_darwin_amd64.tar.gz"
+      sha256 "01da0daedff64e10bc2dc1e64f2149c5d129c113a2777d08bf72109ccbb40368"
 
       def install
         bin.install "thermite"
@@ -29,16 +29,16 @@ class Thermite < Formula
 
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/dollarshaveclub/thermite/releases/download/v0.0.32/thermite_0.0.32_linux_arm64.tar.gz"
-      sha256 "f8f635b2a41fd24cf63f5444855eae86c78cf8cf3d766f9b44ec4c7e15f0b478"
+      url "https://github.com/dollarshaveclub/thermite/releases/download/v0.0.33/thermite_0.0.33_linux_arm64.tar.gz"
+      sha256 "45e1ce2a4c7e8bd16247ec1150027848981e35d211acc5edbf9bce6abe3367a5"
 
       def install
         bin.install "thermite"
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/dollarshaveclub/thermite/releases/download/v0.0.32/thermite_0.0.32_linux_amd64.tar.gz"
-      sha256 "d27dde31db20d62165b719ac2d4579d1536e7974802e4054aea06132aedb1229"
+      url "https://github.com/dollarshaveclub/thermite/releases/download/v0.0.33/thermite_0.0.33_linux_amd64.tar.gz"
+      sha256 "efa5e924933b39d98b0cc41de5097e4de7856bfd8f0e47d4a458b57dd53a87e8"
 
       def install
         bin.install "thermite"
